@@ -1,0 +1,15 @@
+<h2 style="margin-left: 2em;">Add Well</h2>
+<form  style ="display: grid;margin-left: 2em;" 
+        #form [formGroup]="wellForm">
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name">
+  
+    <label for="type">Type: </label>
+    <input id="type" type="text" formControlName="type">
+
+    <label for="sourcekey">Source Key: </label>
+    <input id="sourcekey" type="text" formControlName="sourcekey">
+  
+    <button class="button" (click)=addWell()>Add Well</button>
+  </form>

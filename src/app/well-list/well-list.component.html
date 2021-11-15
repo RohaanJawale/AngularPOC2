@@ -1,0 +1,27 @@
+<ng-container *ngIf="!showWellForm">
+    <h2>User List</h2>  
+
+<!-- Parent Component at display -->
+<table class = "table table-bordered">
+    <thead class="table-head">
+        <tr>
+            <th>Name</th>
+            <th >Type</th>
+            <th>Source</th>
+        </tr>
+    </thead>
+        
+        <tr *ngFor="let well of wellList; index as i">
+            <td>{{ well.name }}</td>
+            <td [class]="well.class" [ngStyle]="{color: well.class === 'rls-class' ? 'red': 'black'}">{{ well.type }}</td>
+            <td class="source-code" (click)=onSourceCode(well)>{{ well.sourcekey }}</td>
+        </tr>
+    </table>
+
+</ng-container>
+
+<!-- Call Child component to display data -->
+<ng-container>
+    <app-well [ngStyle]="{visibility: !showWellForm ? 'hidden' : 'unset'}" #well (wellDetails)=wellInfo($event)></app-well>   
+</ng-container>
+
